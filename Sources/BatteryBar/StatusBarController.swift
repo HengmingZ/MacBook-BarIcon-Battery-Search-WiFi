@@ -32,6 +32,9 @@ public final class StatusBarController: NSObject {
     
     private func setupStatusItem() {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+        // 允许参与菜单栏排序并持久化记忆位置（支持按住 Command 键随意拖拽排序）
+        statusItem.autosaveName = "BatteryBar"
+        
         if let button = statusItem.button {
             button.target = self
             button.action = #selector(togglePanel(_:))
