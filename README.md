@@ -70,7 +70,7 @@ Because macOS protects `ControlCenter.app` via Signed System Volume (SSV), you d
 
 ### Method 2: Via System Settings (Required for Spotlight)
 In macOS, configure the top **Menu Bar** (菜单栏) icon display settings:
-1. Open **System Settings** -> **Menu Bar** (菜单栏, or run `open "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension"` in Terminal).
+1. Open **System Settings** -> **Menu Bar** (菜单栏).
 2. **Wi-Fi**: Set to **Don't Show in Menu Bar** (不在菜单栏显示).
 3. **Battery**: Set to **Don't Show in Menu Bar** (不在菜单栏显示).
 4. **Spotlight**: Set to **Don't Show in Menu Bar** (不在菜单栏显示).
