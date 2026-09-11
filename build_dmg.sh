@@ -10,7 +10,7 @@ cp .build/release/BatteryBar BatteryBar.app/Contents/MacOS/BatteryBar
 chmod +x BatteryBar.app/Contents/MacOS/BatteryBar
 
 echo "🔏 刷新代码签名..."
-codesign --force --deep --sign - BatteryBar.app
+codesign --force --deep --sign "BatteryBar Local Signing" BatteryBar.app
 
 echo "💿 打包 BatteryBar.dmg..."
 rm -rf /tmp/dmg_staging BatteryBar.dmg

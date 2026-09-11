@@ -159,6 +159,13 @@ public final class StatusBarController: NSObject {
     }
     
     private func triggerSpotlightSearch() {
+        // 0. 无辅助功能权限时主动弹系统授权框（CGEvent 注入无权限会被静默丢弃）
+        if !AXIsProcessTrusted() {
+            let opts = [kAXTrustedCheckOptionPrompt.takeUnretainedValue(): true] as CFDictionary
+            AXIsProcessTrustedWithOptions(opts)
+            return
+        }
+        
         // 1. 释放焦点让前台系统恢复活跃状态
         NSApp.deactivate()
         
