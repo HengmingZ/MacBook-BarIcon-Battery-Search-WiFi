@@ -59,16 +59,23 @@ On modern MacBooks (especially models with camera notches), top menu bar space i
 
 ---
 
-## How to Replace Native macOS Icons (No SIP Disabling Required)
+## How to Remove Native macOS Icons from the Menu Bar (No SIP Disabling Required)
 
-Because macOS protects `ControlCenter.app` via Signed System Volume (SSV), you do not need risky dylib injections or disabling SIP. Simply hide the native icons in System Settings:
+Because macOS protects `ControlCenter.app` via Signed System Volume (SSV), you do not need risky dylib injections or disabling SIP. Removing redundant native icons from your top **Menu Bar** (while keeping them fully functional inside the Control Center panel) is completely native and takes seconds:
 
-1. Open **System Settings** -> **Control Center** (or run `open "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension"`).
-2. **Wi-Fi**: Select **Don't Show in Menu Bar** (不在菜单栏显示).
+### Method 1: Instant Drag-to-Remove (Fastest for Wi-Fi & Battery)
+1. Hold down the **`Command (⌘)`** key on your keyboard.
+2. Click and hold the native **Wi-Fi** or **Battery** icon on the top Menu Bar.
+3. Drag it downwards off the Menu Bar until an `✕` icon appears next to the cursor, then release. The icon will be instantly removed from the Menu Bar!
+
+### Method 2: Via System Settings (Required for Spotlight)
+In macOS, the display switches for top Menu Bar icons are managed inside the "Control Center" settings pane:
+1. Open **System Settings** -> **Control Center** (or run `open "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension"` in Terminal).
+2. **Wi-Fi**: Set to **Don't Show in Menu Bar** (不在菜单栏显示).
 3. **Battery**: Set to **Don't Show in Menu Bar** (不在菜单栏显示).
-4. **Spotlight**: Under *Menu Bar Only*, set to **Don't Show in Menu Bar** (不在菜单栏显示).
+4. **Spotlight**: Scroll down to the *Menu Bar Only* (仅在菜单栏) section, and set Spotlight to **Don't Show in Menu Bar** (不在菜单栏显示).
 
-Now, your menu bar is uncluttered and occupied solely by the unified **BatteryBar** icon.
+> **Note**: These settings only remove the icons from the top **Menu Bar** to save space. Your Control Center dropdown panel itself remains completely intact and functional.
 
 ---
 
@@ -114,6 +121,11 @@ chmod +x BatteryBar.app/Contents/MacOS/BatteryBar
 
 # Run
 open BatteryBar.app
+```
+
+### One-Click Package into DMG
+```bash
+./build_dmg.sh
 ```
 
 ---
