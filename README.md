@@ -16,6 +16,13 @@ On modern MacBooks (especially models with camera notches), top menu bar space i
 
 **BatteryBar** consolidates all three core indicators into one dynamic, Retina-crisp vector glyph:
 
+<p align="center">
+  <img src="assets/icon-structure.svg" alt="BatteryBar 3-in-1 Icon Architecture" width="100%">
+</p>
+
+<details>
+<summary>📐 View ASCII Schematic</summary>
+
 ```text
        ╭────────╮  <- Magnifier Rim = Circular Battery Ring Gauge
      ╭─╯ ╱ ⌒ ╲  ╰─╮  (Fills clockwise according to real-time battery level;
@@ -26,6 +33,8 @@ On modern MacBooks (especially models with camera notches), top menu bar space i
            \   <- Magnifier Handle = Spotlight Symbol
             \
 ```
+
+</details>
 
 ---
 

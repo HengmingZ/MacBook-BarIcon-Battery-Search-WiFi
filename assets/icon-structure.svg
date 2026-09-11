@@ -1,0 +1,256 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 570" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f17"/>
+      <stop offset="50%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#080c14"/>
+    </linearGradient>
+
+    <!-- Emerald Battery Gradient -->
+    <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34D399"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+
+    <!-- Wi-Fi Gradient -->
+    <linearGradient id="wifiGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#60A5FA"/>
+      <stop offset="100%" stop-color="#38BDF8"/>
+    </linearGradient>
+
+    <!-- Amber Red Warning Gradient -->
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F87171"/>
+      <stop offset="100%" stop-color="#DC2626"/>
+    </linearGradient>
+
+    <!-- Card Background Gradient -->
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255, 255, 255, 0.05)"/>
+      <stop offset="100%" stop-color="rgba(255, 255, 255, 0.02)"/>
+    </linearGradient>
+
+    <!-- Mini Card Gradient -->
+    <linearGradient id="miniCardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255, 255, 255, 0.04)"/>
+      <stop offset="100%" stop-color="rgba(255, 255, 255, 0.01)"/>
+    </linearGradient>
+
+    <!-- Glow Filters -->
+    <filter id="glowGreen" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="glowBlue" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="subtleShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <style>
+    .title-tag { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif; font-size: 11px; font-weight: 700; fill: #38BDF8; letter-spacing: 1.5px; text-transform: uppercase; }
+    .header-title { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif; font-size: 22px; font-weight: 700; fill: #F8FAFC; letter-spacing: -0.5px; }
+    .header-sub { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif; font-size: 13px; font-weight: 400; fill: #94A3B8; }
+    
+    .card-title { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif; font-size: 14.5px; font-weight: 600; fill: #FFFFFF; }
+    .card-subtitle { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif; font-size: 12px; font-weight: 400; fill: #94A3B8; }
+    .card-badge { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.5px; }
+
+    .mini-title { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif; font-size: 12.5px; font-weight: 600; fill: #F1F5F9; }
+    .mini-desc { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif; font-size: 11px; font-weight: 400; fill: #64748B; }
+
+    .pointer-solid { stroke-width: 1.5; fill: none; }
+  </style>
+
+  <!-- Canvas Background -->
+  <rect width="980" height="570" rx="16" fill="url(#bgGrad)" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1"/>
+
+  <!-- Top Ambient Glow -->
+  <circle cx="230" cy="220" r="180" fill="#10B981" opacity="0.05" filter="url(#glowGreen)"/>
+  <circle cx="230" cy="240" r="120" fill="#38BDF8" opacity="0.06" filter="url(#glowBlue)"/>
+
+  <!-- Header -->
+  <g transform="translate(36, 40)">
+    <rect x="0" y="0" width="138" height="22" rx="11" fill="rgba(56, 189, 248, 0.12)" stroke="rgba(56, 189, 248, 0.3)" stroke-width="0.8"/>
+    <text x="69" y="15" text-anchor="middle" class="title-tag">GLYPH ANATOMY</text>
+    <text x="0" y="48" class="header-title">Unified 3-in-1 Micro-Indicator Architecture</text>
+    <text x="0" y="70" class="header-sub">Fusing Battery Ring Gauge, Wi-Fi Waves, and Spotlight Handle into one 26×22pt vector glyph</text>
+  </g>
+
+  <!-- Left: Schematic Blueprint Box -->
+  <g transform="translate(36, 126)">
+    <!-- Blueprint Backplate -->
+    <rect x="0" y="0" width="380" height="274" rx="14" fill="rgba(15, 23, 42, 0.65)" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" filter="url(#subtleShadow)"/>
+    
+    <!-- Subtle Grid Lines -->
+    <path d="M 40,0 L 40,274 M 110,0 L 110,274 M 185,0 L 185,274 M 260,0 L 260,274 M 330,0 L 330,274" stroke="rgba(255, 255, 255, 0.03)" stroke-width="1"/>
+    <path d="M 0,55 L 380,55 M 0,115 L 380,115 M 0,175 L 380,175 M 0,230 L 380,230" stroke="rgba(255, 255, 255, 0.03)" stroke-width="1"/>
+
+    <!-- Scale Label -->
+    <text x="16" y="24" font-family="-apple-system, BlinkMacSystemFont, monospace" font-size="11" fill="#475569">CANVAS: 26×22 pt (Retina ×10 Scale)</text>
+
+    <!-- Main Icon Elements (Center: 180, 125) -->
+
+    <!-- 1. Handle (Spotlight) — 45-degree angle Southeast -->
+    <line x1="228" y1="173" x2="274" y2="219" stroke="#F1F5F9" stroke-width="17" stroke-linecap="round"/>
+    <line x1="230" y1="175" x2="270" y2="215" stroke="#94A3B8" stroke-width="3" stroke-linecap="round" opacity="0.35"/>
+
+    <!-- 2. Battery Ring Gauge -->
+    <!-- Background Inactive Track (360 deg) -->
+    <circle cx="180" cy="125" r="76" fill="none" stroke="rgba(255, 255, 255, 0.16)" stroke-width="18"/>
+
+    <!-- Foreground Active Arc (85% clockwise fill, starting from 12 o'clock) -->
+    <!-- Circumference = 2 * PI * 76 = 477.52. 85% = 405.89. Offset = 71.63 -->
+    <circle cx="180" cy="125" r="76" fill="none" stroke="url(#emeraldGrad)" stroke-width="18" stroke-linecap="round"
+            stroke-dasharray="477.52" stroke-dashoffset="71.63" transform="rotate(-90 180 125)" filter="url(#glowGreen)"/>
+
+    <!-- 3. Wi-Fi Waves inside lens -->
+    <!-- Wi-Fi Center is offset downwards (180, 159) -->
+    <g transform="translate(180, 159)">
+      <!-- Base Dot -->
+      <circle cx="0" cy="0" r="12" fill="#F8FAFC" filter="url(#glowBlue)"/>
+      
+      <!-- Mid Wave Arc (R=36) -->
+      <path d="M -28 -22 A 36 36 0 0 1 28 -22" fill="none" stroke="url(#wifiGrad)" stroke-width="13" stroke-linecap="round"/>
+      
+      <!-- Outer Wave Arc (R=58) -->
+      <path d="M -47 -34 A 58 58 0 0 1 47 -34" fill="none" stroke="url(#wifiGrad)" stroke-width="13" stroke-linecap="round"/>
+    </g>
+
+    <!-- Center Alignment Crosshair -->
+    <circle cx="180" cy="125" r="2" fill="rgba(255, 255, 255, 0.4)"/>
+  </g>
+
+  <!-- Connective Leader Lines -->
+  <!-- Line 1: Battery Ring -> Card 1 -->
+  <path d="M 280 170 L 350 170 L 420 166 L 446 166" class="pointer-solid" stroke="#34D399"/>
+  <circle cx="280" cy="170" r="3.5" fill="#34D399"/>
+
+  <!-- Line 2: Wi-Fi Waves -> Card 2 -->
+  <path d="M 226 252 L 350 252 L 420 260 L 446 260" class="pointer-solid" stroke="#38BDF8"/>
+  <circle cx="226" cy="252" r="3.5" fill="#38BDF8"/>
+
+  <!-- Line 3: Spotlight Handle -> Card 3 -->
+  <path d="M 310 345 L 370 345 L 420 354 L 446 354" class="pointer-solid" stroke="#E2E8F0"/>
+  <circle cx="310" cy="345" r="3.5" fill="#E2E8F0"/>
+
+  <!-- Right: 3 Component Cards -->
+  <g transform="translate(446, 126)">
+    <!-- Card 1: Battery Ring Gauge -->
+    <g transform="translate(0, 0)">
+      <rect width="498" height="82" rx="10" fill="url(#cardGrad)" stroke="rgba(52, 211, 153, 0.3)" stroke-width="1"/>
+      <rect x="14" y="15" width="36" height="36" rx="8" fill="rgba(52, 211, 153, 0.15)"/>
+      <text x="32" y="39" font-size="19" text-anchor="middle">🔋</text>
+      
+      <text x="62" y="30" class="card-title">Magnifier Rim — Circular Battery Gauge</text>
+      <rect x="402" y="14" width="82" height="18" rx="9" fill="rgba(52, 211, 153, 0.2)"/>
+      <text x="443" y="26" text-anchor="middle" class="card-badge" fill="#34D399">ACTIVE RIM</text>
+      
+      <text x="62" y="50" class="card-subtitle">Fills clockwise from 12 o'clock according to live battery level.</text>
+      <text x="62" y="67" class="card-subtitle" fill="#6EE7B7">Glows emerald green when charging; shifts to amber-red alert when ≤ 20%.</text>
+    </g>
+
+    <!-- Card 2: Wi-Fi Waves -->
+    <g transform="translate(0, 96)">
+      <rect width="498" height="82" rx="10" fill="url(#cardGrad)" stroke="rgba(56, 189, 248, 0.3)" stroke-width="1"/>
+      <rect x="14" y="15" width="36" height="36" rx="8" fill="rgba(56, 189, 248, 0.15)"/>
+      <text x="32" y="39" font-size="19" text-anchor="middle">📶</text>
+      
+      <text x="62" y="30" class="card-title">Lens Center — Real-Time Wi-Fi Wave Emitter</text>
+      <rect x="400" y="14" width="84" height="18" rx="9" fill="rgba(56, 189, 248, 0.2)"/>
+      <text x="442" y="26" text-anchor="middle" class="card-badge" fill="#38BDF8">LENS CORE</text>
+      
+      <text x="62" y="50" class="card-subtitle">1–3 radiating arcs + base point reflecting RSSI signal strength.</text>
+      <text x="62" y="67" class="card-subtitle" fill="#7DD3FC">Real-time status feedback; automatically dims when offline or disconnected.</text>
+    </g>
+
+    <!-- Card 3: Spotlight Handle -->
+    <g transform="translate(0, 192)">
+      <rect width="498" height="82" rx="10" fill="url(#cardGrad)" stroke="rgba(241, 245, 249, 0.25)" stroke-width="1"/>
+      <rect x="14" y="15" width="36" height="36" rx="8" fill="rgba(255, 255, 255, 0.1)"/>
+      <text x="32" y="39" font-size="19" text-anchor="middle">🔍</text>
+      
+      <text x="62" y="30" class="card-title">Magnifier Handle — Spotlight Silhouette</text>
+      <rect x="410" y="14" width="74" height="18" rx="9" fill="rgba(255, 255, 255, 0.15)"/>
+      <text x="447" y="26" text-anchor="middle" class="card-badge" fill="#F1F5F9">SEARCH</text>
+      
+      <text x="62" y="50" class="card-subtitle">45-degree rounded handle anchoring the micro-indicator.</text>
+      <text x="62" y="67" class="card-subtitle" fill="#CBD5E1">Fuses three vital status monitors into macOS's iconic Spotlight search icon.</text>
+    </g>
+  </g>
+
+  <!-- Bottom: State Variations Strip -->
+  <g transform="translate(36, 426)">
+    <rect width="908" height="110" rx="12" fill="rgba(15, 23, 42, 0.7)" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1"/>
+    
+    <text x="20" y="24" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif" font-size="11" font-weight="700" fill="#94A3B8" letter-spacing="1">LIVE TELEMETRY STATES IN MENU BAR</text>
+
+    <!-- State 1: Charging (85%) -->
+    <g transform="translate(20, 38)">
+      <rect width="206" height="58" rx="8" fill="url(#miniCardGrad)" stroke="rgba(52, 211, 153, 0.2)" stroke-width="0.8"/>
+      <!-- Mini Icon -->
+      <g transform="translate(28, 29) scale(0.95)">
+        <line x1="8" y1="8" x2="15" y2="15" stroke="#F1F5F9" stroke-width="3.2" stroke-linecap="round"/>
+        <circle cx="0" cy="0" r="12" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="3"/>
+        <circle cx="0" cy="0" r="12" fill="none" stroke="#34D399" stroke-width="3" stroke-linecap="round"
+                stroke-dasharray="75.4" stroke-dashoffset="11.3" transform="rotate(-90)"/>
+        <circle cx="0" cy="5" r="2" fill="#F8FAFC"/>
+        <path d="M -4 2 A 5 5 0 0 1 4 2" fill="none" stroke="#F8FAFC" stroke-width="2" stroke-linecap="round"/>
+        <path d="M -7 -1 A 9 9 0 0 1 7 -1" fill="none" stroke="#F8FAFC" stroke-width="2" stroke-linecap="round"/>
+      </g>
+      <text x="60" y="26" class="mini-title">85% Charging ⚡</text>
+      <text x="60" y="44" class="mini-desc">Emerald Green Glow</text>
+    </g>
+
+    <!-- State 2: Normal 100% -->
+    <g transform="translate(242, 38)">
+      <rect width="206" height="58" rx="8" fill="url(#miniCardGrad)" stroke="rgba(255, 255, 255, 0.12)" stroke-width="0.8"/>
+      <!-- Mini Icon -->
+      <g transform="translate(28, 29) scale(0.95)">
+        <line x1="8" y1="8" x2="15" y2="15" stroke="#F1F5F9" stroke-width="3.2" stroke-linecap="round"/>
+        <circle cx="0" cy="0" r="12" fill="none" stroke="#F1F5F9" stroke-width="3"/>
+        <circle cx="0" cy="5" r="2" fill="#F8FAFC"/>
+        <path d="M -4 2 A 5 5 0 0 1 4 2" fill="none" stroke="#F8FAFC" stroke-width="2" stroke-linecap="round"/>
+        <path d="M -7 -1 A 9 9 0 0 1 7 -1" fill="none" stroke="#F8FAFC" stroke-width="2" stroke-linecap="round"/>
+      </g>
+      <text x="60" y="26" class="mini-title">100% On Battery</text>
+      <text x="60" y="44" class="mini-desc">Full Adaptive White</text>
+    </g>
+
+    <!-- State 3: Low Battery 15% -->
+    <g transform="translate(464, 38)">
+      <rect width="206" height="58" rx="8" fill="url(#miniCardGrad)" stroke="rgba(239, 68, 68, 0.2)" stroke-width="0.8"/>
+      <!-- Mini Icon -->
+      <g transform="translate(28, 29) scale(0.95)">
+        <line x1="8" y1="8" x2="15" y2="15" stroke="#F1F5F9" stroke-width="3.2" stroke-linecap="round"/>
+        <circle cx="0" cy="0" r="12" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="3"/>
+        <circle cx="0" cy="0" r="12" fill="none" stroke="#EF4444" stroke-width="3" stroke-linecap="round"
+                stroke-dasharray="75.4" stroke-dashoffset="64.1" transform="rotate(-90)"/>
+        <circle cx="0" cy="5" r="2" fill="#F8FAFC"/>
+        <path d="M -4 2 A 5 5 0 0 1 4 2" fill="none" stroke="#F8FAFC" stroke-width="2" stroke-linecap="round"/>
+        <path d="M -7 -1 A 9 9 0 0 1 7 -1" fill="none" stroke="#F8FAFC" stroke-width="2" stroke-linecap="round"/>
+      </g>
+      <text x="60" y="26" class="mini-title">15% Low Battery ⚠️</text>
+      <text x="60" y="44" class="mini-desc">Amber-Red Alert Arc</text>
+    </g>
+
+    <!-- State 4: Disconnected -->
+    <g transform="translate(686, 38)">
+      <rect width="202" height="58" rx="8" fill="url(#miniCardGrad)" stroke="rgba(148, 163, 184, 0.2)" stroke-width="0.8"/>
+      <!-- Mini Icon -->
+      <g transform="translate(28, 29) scale(0.95)">
+        <line x1="8" y1="8" x2="15" y2="15" stroke="#94A3B8" stroke-width="3.2" stroke-linecap="round"/>
+        <circle cx="0" cy="0" r="12" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="3"/>
+        <circle cx="0" cy="0" r="12" fill="none" stroke="#94A3B8" stroke-width="3" stroke-linecap="round"
+                stroke-dasharray="75.4" stroke-dashoffset="26.4" transform="rotate(-90)"/>
+        <circle cx="0" cy="5" r="2" fill="rgba(255,255,255,0.2)"/>
+      </g>
+      <text x="60" y="26" class="mini-title">Disconnected 📡</text>
+      <text x="60" y="44" class="mini-desc">Dimmed Wi-Fi State</text>
+    </g>
+  </g>
+</svg>
