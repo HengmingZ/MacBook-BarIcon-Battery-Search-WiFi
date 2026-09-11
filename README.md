@@ -49,6 +49,14 @@ On modern MacBooks (especially models with camera notches), top menu bar space i
 - **Battery Card**: Focused cleanly on what matters—circular progress gauge, charging pulse indicator, exact percentage (e.g. `Battery: 83% (Charging)`), and power source (`AC Power`).
 - **Wi-Fi Card**: Displays live connected network name (e.g. `Wi-Fi: YourNetwork`), signal bars, and raw RSSI values in dBm.
 
+### 5. Drag-to-Reorder & Position Memory (`⌘ + Drag`)
+- Powered by `statusItem.autosaveName = "BatteryBar"`.
+- Simply hold down the **`Command (⌘)`** key and drag the icon anywhere along the menu bar (e.g. to the right of your Input Method / Pinyin icon). macOS permanently remembers its exact placement even after restarts.
+
+### 6. Enlarged Hit Targets & Hover Feedback
+- Expanded touch boundaries for `[Battery]`, `[Wi-Fi]`, and `[Spotlight]` pill buttons with `.contentShape(Capsule())` to prevent transparent click misses.
+- Embedded 42×42pt clickable targets on the battery ring and Wi-Fi symbol with subtle hover highlights.
+
 ---
 
 ## 🚀 How to Replace Native macOS Icons (No SIP Disabling Required)
