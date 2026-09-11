@@ -164,13 +164,7 @@ public final class StatusBarController: NSObject {
         
         // 2. 延迟 0.05 秒确保面板彻底收起后触发快捷事件
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
-            // 通道 A：使用独立系统进程 osascript 触发按键（不受 NSAppleScript 线程安全限制）
-            let task = Process()
-            task.executableURL = URL(fileURLWithPath: "/usr/bin/osascript")
-            task.arguments = ["-e", "tell application \"System Events\" to key code 49 using {command down}"]
-            try? task.run()
-            
-            // 通道 B：底层 CoreGraphics HID 按键同步注入
+            // 底层 CoreGraphics HID 按键注入（只发一次，重复触发会把 Spotlight 关掉）
             let source = CGEventSource(stateID: .hidSystemState)
             let keyDown = CGEvent(keyboardEventSource: source, virtualKey: 49, keyDown: true)
             keyDown?.flags = .maskCommand
