@@ -38,9 +38,7 @@ public struct PopoverContentView: View {
                 // Spotlight button: Click to invoke native macOS Spotlight search bar
                 Button(action: {
                     onClose()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                        onTriggerSpotlight()
-                    }
+                    onTriggerSpotlight()
                 }) {
                     HStack(spacing: 5) {
                         Image(systemName: "magnifyingglass")
