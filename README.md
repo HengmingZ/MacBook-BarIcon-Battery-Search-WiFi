@@ -69,13 +69,13 @@ Because macOS protects `ControlCenter.app` via Signed System Volume (SSV), you d
 3. Drag it downwards off the Menu Bar until an `✕` icon appears next to the cursor, then release. The icon will be instantly removed from the Menu Bar!
 
 ### Method 2: Via System Settings (Required for Spotlight)
-In macOS, the display switches for top Menu Bar icons are managed inside the "Control Center" settings pane:
-1. Open **System Settings** -> **Control Center** (or run `open "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension"` in Terminal).
+In macOS, configure the top **Menu Bar** (菜单栏) icon display settings:
+1. Open **System Settings** -> **Menu Bar** (菜单栏, or run `open "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension"` in Terminal).
 2. **Wi-Fi**: Set to **Don't Show in Menu Bar** (不在菜单栏显示).
 3. **Battery**: Set to **Don't Show in Menu Bar** (不在菜单栏显示).
-4. **Spotlight**: Scroll down to the *Menu Bar Only* (仅在菜单栏) section, and set Spotlight to **Don't Show in Menu Bar** (不在菜单栏显示).
+4. **Spotlight**: Set to **Don't Show in Menu Bar** (不在菜单栏显示).
 
-> **Note**: These settings only remove the icons from the top **Menu Bar** to save space. Your Control Center dropdown panel itself remains completely intact and functional.
+> **Note**: These settings only remove the icons from the top **Menu Bar** to save notch screen space.
 
 ---
 
