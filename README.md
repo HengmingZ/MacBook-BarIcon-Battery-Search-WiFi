@@ -10,26 +10,26 @@
 
 ---
 
-## 💡 Design Philosophy
+## Design Philosophy
 
 On modern MacBooks (especially models with camera notches), top menu bar space is precious. The default macOS status bar scatters Battery, Wi-Fi, and Spotlight across multiple slots.
 
-**BatteryBar** elegantly consolidates all three core indicators into one dynamic, Retina-crisp vector glyph:
+**BatteryBar** consolidates all three core indicators into one dynamic, Retina-crisp vector glyph:
 
 ```text
-       ╭────────╮  ← Magnifier Rim = Circular Battery Ring Gauge
+       ╭────────╮  <- Magnifier Rim = Circular Battery Ring Gauge
      ╭─╯ ╱ ⌒ ╲  ╰─╮  (Fills clockwise according to real-time battery level;
     │   │  ⌒  │   │   Glows emerald green when charging, amber-red when low)
-    │    \ • /    │  ← Magnifier Lens Center = Real-time Wi-Fi Waves
+    │    \ • /    │  <- Magnifier Lens Center = Real-time Wi-Fi Waves
      ╰─╮        ╭─╯
        ╰──┬─────╯
-           \   ← Magnifier Handle = Spotlight Symbol
+           \   <- Magnifier Handle = Spotlight Symbol
             \
 ```
 
 ---
 
-## ✨ Features
+## Features
 
 ### 1. 3-in-1 Unified Micro-Indicator
 - **Magnifier Silhouette (Spotlight)**: A compact, rounded 45-degree handle.
@@ -46,33 +46,33 @@ On modern MacBooks (especially models with camera notches), top menu bar space i
 - Clicking **`[Spotlight]`** in the popover card instantly closes the panel, releases window focus, and triggers `Cmd + Space` to summon the macOS Spotlight search bar immediately.
 
 ### 4. Streamlined Battery & Wi-Fi Cards
-- **Battery Card**: Focused cleanly on what matters—circular progress gauge, charging pulse indicator, exact percentage (e.g. `Battery: 83% (Charging)`), and power source (`AC Power`).
+- **Battery Card**: Focused cleanly on core metrics—circular progress gauge, charging pulse indicator, exact percentage (e.g. `Battery: 83% (Charging)`), and power source (`AC Power`).
 - **Wi-Fi Card**: Displays live connected network name (e.g. `Wi-Fi: YourNetwork`), signal bars, and raw RSSI values in dBm.
 
-### 5. Drag-to-Reorder & Position Memory (`⌘ + Drag`)
+### 5. Drag-to-Reorder & Position Memory (Command + Drag)
 - Powered by `statusItem.autosaveName = "BatteryBar"`.
-- Simply hold down the **`Command (⌘)`** key and drag the icon anywhere along the menu bar (e.g. to the right of your Input Method / Pinyin icon). macOS permanently remembers its exact placement even after restarts.
+- Simply hold down the **`Command`** key and drag the icon anywhere along the menu bar (e.g. to the right of your Input Method / Pinyin icon). macOS permanently remembers its exact placement even after restarts.
 
 ### 6. Enlarged Hit Targets & Hover Feedback
 - Expanded touch boundaries for `[Battery]`, `[Wi-Fi]`, and `[Spotlight]` pill buttons with `.contentShape(Capsule())` to prevent transparent click misses.
-- Embedded 42×42pt clickable targets on the battery ring and Wi-Fi symbol with subtle hover highlights.
+- Embedded 42x42pt clickable targets on the battery ring and Wi-Fi symbol with subtle hover highlights.
 
 ---
 
-## 🚀 How to Replace Native macOS Icons (No SIP Disabling Required)
+## How to Replace Native macOS Icons (No SIP Disabling Required)
 
-Because macOS protects `ControlCenter.app` via Signed System Volume (SSV), you don't need risky dylib injections or disabling SIP. Simply hide the native icons in System Settings:
+Because macOS protects `ControlCenter.app` via Signed System Volume (SSV), you do not need risky dylib injections or disabling SIP. Simply hide the native icons in System Settings:
 
-1. Open **System Settings** → **Control Center** (or run `open "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension"`).
+1. Open **System Settings** -> **Control Center** (or run `open "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension"`).
 2. **Wi-Fi**: Select **Don't Show in Menu Bar** (不在菜单栏显示).
 3. **Battery**: Set to **Don't Show in Menu Bar** (不在菜单栏显示).
 4. **Spotlight**: Under *Menu Bar Only*, set to **Don't Show in Menu Bar** (不在菜单栏显示).
 
-Now, your menu bar is uncluttered and occupied solely by the unified **BatteryBar** icon!
+Now, your menu bar is uncluttered and occupied solely by the unified **BatteryBar** icon.
 
 ---
 
-## 🛠 Project Architecture
+## Project Architecture
 
 ```text
 modifyMacUI/
@@ -94,7 +94,7 @@ modifyMacUI/
 
 ---
 
-## 🔨 Build & Run
+## Build & Run
 
 ### Prerequisites
 - macOS 13.0 or later
@@ -118,13 +118,13 @@ open BatteryBar.app
 
 ---
 
-## ⚡ Auto-Start on Boot
+## Auto-Start on Boot
 
-BatteryBar is configured with dual auto-start mechanisms for 100% reliability:
+BatteryBar is configured with dual auto-start mechanisms for reliability:
 
-1. **System Login Items (用户登录项)**:
-   Registered under macOS **System Settings** → **General** → **Login Items & Extensions**.
-2. **LaunchAgent Daemon (后台守护)**:
+1. **System Login Items**:
+   Registered under macOS **System Settings** -> **General** -> **Login Items & Extensions**.
+2. **LaunchAgent Daemon**:
    Configured at `~/Library/LaunchAgents/com.custom.batterybar.plist` with `RunAtLoad = true`.
 
 Manage via terminal:
@@ -138,13 +138,13 @@ osascript -e 'tell application "System Events" to delete (every login item whose
 
 ---
 
-## 🔐 Permissions & Privacy
+## Permissions & Privacy
 
 - **100% User Space**: Operates with standard user permissions without disabling System Integrity Protection (SIP).
 - **Wi-Fi SSID Display**: macOS requires location permission to display unredacted Wi-Fi network names (to prevent unauthorized geolocation fingerprinting). If not yet authorized, clicking the `Show SSID` button on the Wi-Fi card will prompt the native system permission dialog once.
 
 ---
 
-## 📄 License
+## License
 
 MIT License. Designed with care for macOS power users.
