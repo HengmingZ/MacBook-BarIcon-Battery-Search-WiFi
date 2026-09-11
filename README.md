@@ -1,0 +1,142 @@
+# BatteryBar: 3-in-1 Unified Status Bar for macOS
+
+> A sleek, zero-overhead, privacy-first macOS menu bar application that fuses **Battery**, **Wi-Fi**, and **Spotlight** into a single micro-indicator with authentic frosted-glass floating popovers.
+
+![macOS](https://img.shields.io/badge/macOS-13.0%2B-blue?logo=apple)
+![Swift](https://img.shields.io/badge/Swift-6.0%2B-orange?logo=swift)
+![Architecture](https://img.shields.io/badge/Architecture-Apple%20Silicon%20(arm64)-black)
+![UI](https://img.shields.io/badge/UI-Frosted%20Glass%20(Translucent)-purple)
+![License](https://img.shields.io/badge/License-MIT-green)
+
+---
+
+## 💡 Design Philosophy
+
+On modern MacBooks (especially models with camera notches), top menu bar space is precious. The default macOS status bar scatters Battery, Wi-Fi, and Spotlight across multiple slots.
+
+**BatteryBar** elegantly consolidates all three core indicators into one dynamic, Retina-crisp vector glyph:
+
+```text
+       ╭────────╮  ← Magnifier Rim = Circular Battery Ring Gauge
+     ╭─╯ ╱ ⌒ ╲  ╰─╮  (Fills clockwise according to real-time battery level;
+    │   │  ⌒  │   │   Glows emerald green when charging, amber-red when low)
+    │    \ • /    │  ← Magnifier Lens Center = Real-time Wi-Fi Waves
+     ╰─╮        ╭─╯
+       ╰──┬─────╯
+           \   ← Magnifier Handle = Spotlight Symbol
+            \
+```
+
+---
+
+## ✨ Features
+
+### 1. 3-in-1 Unified Micro-Indicator
+- **Magnifier Silhouette (Spotlight)**: A compact, rounded 45-degree handle.
+- **Battery Gauge Rim (Battery)**: Dynamic circular gauge filling clockwise from 12 o'clock, adapting automatically to light/dark themes, battery percentage, and AC power status.
+- **Inner Wave Emitter (Wi-Fi)**: An RF radiation arc centered inside the lens, reflecting real-time signal strength (RSSI) and network activity.
+
+### 2. Authentic Translucent Frosted Glass Popover
+- Built with **`NSVisualEffectView` (`.behindWindow` blending mode)** to achieve the exact translucent, real-time blurred frosted-glass look of native macOS Control Center widgets.
+- **Pixel-Perfect Zero-Gap Alignment**: Calculates absolute screen physical coordinates to hug the menu bar icon precisely 3 pixels beneath, bypassing macOS notch margin bugs.
+- **Subtle Glass Border**: Features a 0.5px light border and 16px smooth rounded corners.
+- **Outside-Click Dismiss**: Smoothly and automatically fades out when clicking anywhere outside.
+
+### 3. Instant Native Spotlight Invocation
+- Clicking **`[Spotlight]`** in the popover card instantly closes the panel, releases window focus, and triggers `Cmd + Space` to summon the macOS Spotlight search bar immediately.
+
+### 4. Streamlined Battery & Wi-Fi Cards
+- **Battery Card**: Focused cleanly on what matters—circular progress gauge, charging pulse indicator, exact percentage (e.g. `Battery: 83% (Charging)`), and power source (`AC Power`).
+- **Wi-Fi Card**: Displays live connected network name (e.g. `Wi-Fi: YourNetwork`), signal bars, and raw RSSI values in dBm.
+
+---
+
+## 🚀 How to Replace Native macOS Icons (No SIP Disabling Required)
+
+Because macOS protects `ControlCenter.app` via Signed System Volume (SSV), you don't need risky dylib injections or disabling SIP. Simply hide the native icons in System Settings:
+
+1. Open **System Settings** → **Control Center** (or run `open "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension"`).
+2. **Wi-Fi**: Select **Don't Show in Menu Bar** (不在菜单栏显示).
+3. **Battery**: Set to **Don't Show in Menu Bar** (不在菜单栏显示).
+4. **Spotlight**: Under *Menu Bar Only*, set to **Don't Show in Menu Bar** (不在菜单栏显示).
+
+Now, your menu bar is uncluttered and occupied solely by the unified **BatteryBar** icon!
+
+---
+
+## 🛠 Project Architecture
+
+```text
+modifyMacUI/
+├── BatteryBar.app/                   # Pre-built standalone macOS application bundle
+│   └── Contents/
+│       ├── Info.plist               # App metadata, LSUIElement (no Dock icon), location usage
+│       └── MacOS/BatteryBar         # Compiled arm64 release binary
+├── Sources/
+│   └── BatteryBar/
+│       ├── BatteryService.swift     # Low-overhead IOKit power source & runloop monitoring
+│       ├── WiFiService.swift        # CoreWLAN & CoreLocation network monitor
+│       ├── BatteryIconRenderer.swift# High-DPI Bezier vector graphics renderer
+│       ├── PopoverContentView.swift # Pure SwiftUI frosted-glass card interface
+│       ├── StatusBarController.swift# NSStatusItem & CustomPanel floating window controller
+│       └── main.swift               # Application lifecycle entry point
+├── Package.swift                    # Swift Package Manager manifest
+└── README.md                        # Project documentation
+```
+
+---
+
+## 🔨 Build & Run
+
+### Prerequisites
+- macOS 13.0 or later
+- Apple Silicon (M1/M2/M3/M4) or Intel Mac
+- Xcode Command Line Tools (`xcode-select --install`)
+
+### Compile Release Binary
+```bash
+swift build -c release
+```
+
+### Bundle into App & Launch
+```bash
+mkdir -p BatteryBar.app/Contents/MacOS
+cp .build/release/BatteryBar BatteryBar.app/Contents/MacOS/BatteryBar
+chmod +x BatteryBar.app/Contents/MacOS/BatteryBar
+
+# Run
+open BatteryBar.app
+```
+
+---
+
+## ⚡ Auto-Start on Boot
+
+BatteryBar is configured with dual auto-start mechanisms for 100% reliability:
+
+1. **System Login Items (用户登录项)**:
+   Registered under macOS **System Settings** → **General** → **Login Items & Extensions**.
+2. **LaunchAgent Daemon (后台守护)**:
+   Configured at `~/Library/LaunchAgents/com.custom.batterybar.plist` with `RunAtLoad = true`.
+
+Manage via terminal:
+```bash
+# Re-register login item
+osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Users/ming-mac/Documents/sProject/modifyMacUI/BatteryBar.app", hidden:false, name:"BatteryBar"}'
+
+# Remove login item
+osascript -e 'tell application "System Events" to delete (every login item whose name is "BatteryBar")'
+```
+
+---
+
+## 🔐 Permissions & Privacy
+
+- **100% User Space**: Operates with standard user permissions without disabling System Integrity Protection (SIP).
+- **Wi-Fi SSID Display**: macOS requires location permission to display unredacted Wi-Fi network names (to prevent unauthorized geolocation fingerprinting). If not yet authorized, clicking the `Show SSID` button on the Wi-Fi card will prompt the native system permission dialog once.
+
+---
+
+## 📄 License
+
+MIT License. Designed with care for macOS power users.
