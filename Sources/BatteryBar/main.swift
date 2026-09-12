@@ -10,6 +10,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 }
 
+if let bundleID = Bundle.main.bundleIdentifier,
+   NSRunningApplication.runningApplications(withBundleIdentifier: bundleID).contains(where: { $0 != NSRunningApplication.current }) {
+    NSLog("[BatteryBar] Another instance is already running, exiting.")
+    exit(0)
+}
+
 let app = NSApplication.shared
 let delegate = AppDelegate()
 app.delegate = delegate
